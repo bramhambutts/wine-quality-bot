@@ -15,6 +15,8 @@ def download_data() -> pd.DataFrame:
     data: pd.DataFrame = wine_quality.data.original
     logger.info('Data downloaded')
 
+    data = clean_data(data)
+
     logger.info(f'Saving data to {DATA_FILE_LOCATION}...')
     try:
         data.to_csv(DATA_FILE_LOCATION, index=False)
@@ -26,14 +28,15 @@ def download_data() -> pd.DataFrame:
         logger.info('Data saved')
 
 
-def clean_data(data: pd.DataFrame) -> None:
+def clean_data(data: pd.DataFrame) -> pd.DataFrame:
     logger = logging.getLogger()
     
     logger.info('Cleaning data...')
     red_mask = data['color']=='red'
-    data['color_code'] = red_mask.astype(int)
-    data.drop(['color'], axis=1)
+    new_data = data.drop(['color'], axis=1)
+    new_data['color_code'] = red_mask.astype(int)
     logger.info('Data cleaned')
+    return new_data
 
 
 def load_data() -> pd.DataFrame:

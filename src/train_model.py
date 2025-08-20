@@ -20,7 +20,7 @@ def collect_data() -> list[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     data = load_data()
 
     y = data['quality']
-    X = data.drop(['quality', 'color'], axis=1)
+    X = data.drop(['quality'], axis=1)
 
     logger.info('Data collected, returning')
     return train_test_split(X, y, test_size=0.25, stratify=y)
