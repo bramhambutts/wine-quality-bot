@@ -68,17 +68,17 @@ def create_model() -> None:
     logger.info(f'Model saved to {MODEL_FILE_NAME}')
     
 
-def get_model():
+def get_model(path: str=MODEL_FILE_NAME):
     logger = logging.getLogger()
 
     try:
         logger.info('Retrieving model...')
-        with open(MODEL_FILE_NAME, 'rb') as file:
+        with open(path, 'rb') as file:
             model = pickle.load(file)
     except FileNotFoundError:
         create_model()
         logger.info('Re-retrieving model')
-        with open(MODEL_FILE_NAME, 'rb') as file:
+        with open(path, 'rb') as file:
             model = pickle.load(file)
     finally:
         logger.info('Model retrieved')
