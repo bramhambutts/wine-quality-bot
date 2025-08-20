@@ -26,3 +26,7 @@ pip install -r requirements.txt
 ```
 
 The project is now set up and possible to run and use.
+
+## Using the classifier
+
+To use the classifier to classify your wine, based on the parameters from the database, simply run `python src/simple_interface.py`. This will start a simple CLI for entering the data and seeing the predicted quality of the wine. It should also download and create the appropriate data as well as the model, allowing you to seamlessly use it without having to run more.
