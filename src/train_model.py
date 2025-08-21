@@ -56,7 +56,7 @@ def create_model() -> None:
 
     logger.info('Creating model...')
     # new_model = GaussianNB()
-    # new_model = LogisticRegression(random_state=42)
+    #new_model = LogisticRegression(random_state=42)
     new_model = RandomForestClassifier(random_state=42)
     train_model(X_train, y_train, new_model)
 
