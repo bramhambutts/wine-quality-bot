@@ -10,7 +10,7 @@ import logging
 import sys
 
 
-MODEL_FILE_NAME = 'data/saved_model.pkl'
+MODEL_FILE_NAME = 'data/saved_model'
 
 
 def collect_data() -> list[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
@@ -56,7 +56,7 @@ def create_model() -> None:
 
     logger.info('Creating model...')
     # new_model = GaussianNB()
-    #new_model = LogisticRegression(random_state=42)
+    # new_model = LogisticRegression(random_state=42)
     new_model = RandomForestClassifier(random_state=42)
     train_model(X_train, y_train, new_model)
 
